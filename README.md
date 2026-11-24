@@ -315,6 +315,6 @@ Apache-2.0. See [`LICENSE`](./LICENSE).
 
 <div align="center">
 
-**Made with 🤖 by the Autonomous Loop Studio team**
+**Made by M. Bryce Hudson Bryce Hudson*
 
 </div>
