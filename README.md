@@ -1,8 +1,9 @@
 # 🤖 Agent Envoy
 
 > **The terminal control room for [Autonomous Loop Studio](https://github.com/autonomous-loop-studio/Autonomous).**
-> One TUI that starts, watches and tunes the local `llama-server` your agents run on — live tokens/s, context fill, GPU, CPU, RAM and the server's own log, all on one screen.
-
+> One TUI that starts, watches and tunes the local `llama-server` your agents run on — live tokens/s, context fill, GPU, CPU, RAM and the server's own log, all on one screen. </br>
+🤖 Model — [MBHudson/ALS-MYTHOS-4B-heretic-f16](https://huggingface.co/MBHudson/ALS-MYTHOS-4B-heretic-f16) </br>
+ 📚 Dataset — [MBHudson/Autonomous-Loop-Studio](https://huggingface.co/datasets/MBHudson/Autonomous-Loop-Studio) </br>
 ![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)
 ![Python](https://img.shields.io/badge/python-3.9%2B-3776AB.svg?logo=python&logoColor=white)
 ![Textual](https://img.shields.io/badge/TUI-Textual-5A4FCF.svg)
