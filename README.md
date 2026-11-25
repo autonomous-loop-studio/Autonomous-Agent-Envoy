@@ -9,7 +9,9 @@
 ![llama.cpp](https://img.shields.io/badge/backend-llama.cpp-111111.svg)
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)
 
-<img src="shot.svg" alt="Agent Envoy — live dashboard with server, GPU/CPU/RAM, token and log panels" width="100%">
+![Agent Envoy — live dashboard with the server, GPU/CPU/RAM, token and log panels](shot.svg)
+
+<sub>The dashboard with the server stopped — `○ stopped   press s to start`.</sub>
 
 Everything it reads comes from your own machine. No cloud, no account, no API key, no telemetry.
 
@@ -247,6 +249,7 @@ Live key hints, generated from the app's own bindings, so it never drifts from w
 | **`[`** | **Halve** the context (`-c`) | Halves each press, floor `1024`. |
 | **`m`** | **Next model** | Cycles `.gguf` files in the `models/` folder, smallest first. |
 | **`q`** | **Quit** the dashboard | **Leaves the server running.** Its PID stays in `logs/llama-server.pid`. |
+| **`Ctrl+P`** | **Command palette** | Textual's built-in searchable command list (shown as `^p palette` in the footer). |
 
 ### How flag changes behave
 
