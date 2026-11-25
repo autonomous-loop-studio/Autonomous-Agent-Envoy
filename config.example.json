@@ -1,0 +1,14 @@
+{
+  "binary": "C:\\path\\to\\llama-server.exe",
+  "model": "C:\\path\\to\\model.gguf",
+  "host": "127.0.0.1",
+  "port": 58880,
+  "ngl": "auto",
+  "ctx": 32768,
+  "threads": 8,
+  "flash_attn": "on",
+  "extra_args": [
+    "--reasoning",
+    "off"
+  ]
+}
