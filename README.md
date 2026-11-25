@@ -64,8 +64,8 @@ It is a *dashboard and process supervisor*, not a chat window. You talk to the a
 ### 1. Get the folder
 
 ```bash
-git clone <this-repo-url> agent-envoy
-cd agent-envoy
+git clone https://github.com/autonomous-loop-studio/Autonomous-Agent-Envoy.git
+cd Autonomous-Agent-Envoy
 ```
 
 (Or just unzip it — there is nothing to build.)
@@ -227,7 +227,9 @@ Live key hints, generated from the app's own bindings, so it never drifts from w
 | `envoy.py` | The whole dashboard: config load/save, the Textual app, the five panels, all key actions, and `--screenshot` headless mode. |
 | `server.py` | `LlamaServer` — builds the `llama-server` argv, spawns it without a shell, writes `logs/llama-server.pid`, tails `logs/llama-server.log`, stops it (or anything else holding the port). |
 | `metrics.py` | Every probe: `nvidia-smi` for the GPU, `psutil` for CPU/RAM, and `/health` + `/slots` + `/metrics` for llama-server. All best-effort — a missing sensor returns `None`, never an exception and never a guessed number. |
-| `config.json` | Your saved settings (binary, model, port, `-ngl`, `-c`, threads, flash-attn, extra args). Written by the app, editable by hand. |
+| `config.json` | Your saved settings (binary, model, port, `-ngl`, `-c`, threads, flash-attn, extra args). Written by the app, editable by hand. Not in git. |
+| `config.example.json` | A committed template for `config.json` with placeholder paths, for starting from a filled-in file instead of the auto-generated one. |
+| `models/` | Where `.gguf` files go — see `models/README.md`. Envoy scans it first, and `.gguf` files are gitignored. |
 | `requirements.txt` | `textual>=0.80`, `psutil>=5.9`. |
 | `run.cmd` | Windows double-click launcher: `cd` to the folder, run `envoy.py` from `.venv`, keep the window open. |
 | `tutorial.md` | The one-page version of this README. |
@@ -277,6 +279,8 @@ In that state **`s` stops whatever process is listening on the configured port**
 ## ⚙ Configuration
 
 `config.json` sits next to `envoy.py`. It is created with sensible defaults on first run and rewritten whenever you change something with a key.
+
+> 💡 Want a filled-in starting point? Copy `config.example.json` to `config.json` before the first launch and edit the two placeholder paths. That file is never used directly — only `config.json` is read.
 
 | Key | Default | Meaning |
 |-----|---------|---------|
@@ -436,7 +440,7 @@ You can also use Envoy with no ALS at all — it's a perfectly good `llama-serve
 | Symptom | Cause / fix |
 |---------|-------------|
 | `llama-server not found: …` | Set `"binary"` in `config.json` to the absolute path, or export `LLAMA_SERVER`. |
-| `model not found: …` | `"model"` is stale or empty. Put a `.gguf` in `models/` and press `m`, or edit the path. |
+| `model not found: …` | No `.gguf` in `models/` and no `model` path in `config.json` — the normal state on a fresh clone. Download a model into `models/` and press `m`, or set the path by hand. |
 | `● running  (loading...)` never clears | Model still loading (big files, slow disk), or it crashed — read the log panel. |
 | `no /metrics from this server` | The server was started elsewhere without `--metrics`. Restart it from Envoy (`s`, then `s`) or add the flag yourself. |
 | `GPU  no nvidia-smi on this machine` | Expected on macOS, AMD and CPU-only boxes. `nvidia-smi` must be on `PATH`. |
@@ -467,7 +471,7 @@ python envoy.py --screenshot shot.svg --width 160 --height 44
 
 ## 📜 License
 
-Apache-2.0, matching Autonomous Loop Studio. The model and dataset carry Apache-2.0 on Hugging Face.
+Apache-2.0, matching Autonomous Loop Studio — see [`LICENSE`](./LICENSE). The model and dataset carry Apache-2.0 on Hugging Face.
 
 ---
 
