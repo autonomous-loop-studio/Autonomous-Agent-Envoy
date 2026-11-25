@@ -1,0 +1,14 @@
+{
+  "binary": "C:\\Users\\anonb\\.unsloth\\llama.cpp\\build\\bin\\Release\\llama-server.exe",
+  "model": "C:\\Users\\anonb\\Desktop\\everything\\models\\ALS-MYTHOS-4B-heretic-f16.gguf",
+  "host": "127.0.0.1",
+  "port": 58880,
+  "ngl": "auto",
+  "ctx": 65536,
+  "threads": 8,
+  "flash_attn": "on",
+  "extra_args": [
+    "--reasoning",
+    "off"
+  ]
+}
